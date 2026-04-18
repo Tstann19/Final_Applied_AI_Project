@@ -8,19 +8,27 @@
 
 - This addition would allow a user to guess the secret pokemon. My application will utilize the PokeAPI to fetch correct information about all the pokemon data available. Difficulty would be decided on how many guesses would be avaliable to the user (12 - easy, 8 - medium, 5 - hard). Hints will be given by the AI Agent that will utilize difficulty-scaled riddles. Hard being the most cryptic and Easy being the most obvious.
 
-# System Diagram Summary (A short explanation of your system diagram)
+# System Diagram Summary
 
+- The system diagram displays how the Pokemon guessing game operates when making the hints for the user. The application first takes the user's input of asking for a hint. Then fetches the data of the secret pokemon to generate LLM Prompting to create a hint. The guardrail validation is a checker to make sure the hint exemplies the specified pokemon data (whether cryptic or obvious). Afterwards the hint is displayed to the user to assist in making their next guess.
 
 # Setup Instructions
 
 1. Install dependencies: `pip install -r requirements.txt`
 2. Run the broken app: `streamlit run app.py`
 
-# Sample Interactions ( Include at least 2-3 examples of inputs and the resulting AI outputs to demonstrate the system is functional.)
+# Sample Interactions 
 
-Input:                  Output:
+Example 1:
+    Input:                  Output:
 
-# Design Decisions (Why you built it this way, and what trade-offs you made.)
+Example 2:
+    Input:                  Output:
+
+Example 3:
+    Input:                  Output:
+
+# Design Decisions 
 
 - I built the application this way because ...
 
@@ -38,8 +46,9 @@ What I Learned:
 - 
 - 
 
-# Reflection (What this project taught you about AI and problem-solving.)
+# Reflection 
 
+- What this project taught you about AI and problem-solving?
 
 
 # Loom video Link of 2-3 examples of the project working.
