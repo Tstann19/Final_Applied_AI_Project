@@ -13,7 +13,7 @@ _DIFFICULTY_INSTRUCTIONS = {
         "but avoid being obscure."
     ),
     "Hard": (
-        "Make these hints VERY CRYPTIC and poetic. Use abstract metaphors, mythological "
+        "Make these hints cryptic and poetic. Use abstract metaphors, mythological "
         "allusions, and only the most obscure characteristics. Never mention types directly. "
         "Only a dedicated Pokemon master should crack these riddles."
     ),
@@ -53,8 +53,50 @@ Rules:
     response = client.models.generate_content(model="gemma-3-1b-it", contents=prompt)
     raw = response.text.strip()
     hints = [line.strip() for line in raw.splitlines() if line.strip()]
-    return hints[:num_hints]
+    hints = hints[:num_hints]
 
+    hints = _validate_and_fix_hints(client, pokemon, difficulty, hints)
+    return hints
+
+# --------------------------- Guardrail Validation ---------------------------------
+
+def _validate_and_fix_hints(
+    client: genai.Client, pokemon: dict, difficulty: str, hints: list[str]
+) -> list[str]:
+    """
+    Ask Gemini to fact-check each hint against the Pokemon's data and rewrite
+    any that contain inaccurate information, preserving the original difficulty tone.
+    """
+    numbered = "\n".join(f"{i + 1}. {h}" for i, h in enumerate(hints))
+
+    prompt = f"""You are a strict fact-checker for a Pokemon guessing game.
+
+VERIFIED POKEMON DATA (ground truth):
+{_format_context(pokemon)}
+
+Below are {len(hints)} hints written for difficulty level "{difficulty}".
+Your job:
+1. Check every hint for factual accuracy against the data above.
+2. If a hint is accurate, copy it exactly as-is.
+3. If a hint contains any incorrect fact (wrong type, wrong stat, wrong ability, etc.), rewrite it so it is factually correct while keeping the same difficulty tone and crypticness level.
+4. NEVER reveal the Pokemon's name in any hint.
+
+HINTS TO VERIFY:
+{numbered}
+
+Return exactly {len(hints)} corrected hints, one per line, no numbering, no bullet points, no blank lines."""
+
+    response = client.models.generate_content(model="gemma-3-1b-it", contents=prompt)
+    raw = response.text.strip()
+    validated = [line.strip() for line in raw.splitlines() if line.strip()]
+
+    # Fall back to originals if the model returns the wrong count
+    if len(validated) != len(hints):
+        return hints
+
+    return validated
+
+# --------------------------------------------------------------------------------------
 
 def _format_context(p: dict) -> str:
     stats_str = ", ".join(f"{k}: {v}" for k, v in p.get("stats", {}).items())
