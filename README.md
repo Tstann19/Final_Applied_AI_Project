@@ -20,27 +20,28 @@
 # Sample Interactions 
 
 Difficulty Easy:
-Example 1:
-    Secret Pokemon: Piplup (Water)
-    Input: Pikachu 
-    Output: Its blue hue is instantly recognizable, a vibrant, calming color.
+- Example 1:
+    - Secret Pokemon: Piplup (Water)
+    - Input: Pikachu 
+    - Output: Its blue hue is instantly recognizable, a vibrant, calming color.
 
 Difficulty Normal:
-Example 2:
-    Secret Pokemon: Gardevoir (Fairy, Psychic)
-    Input: Vulpix
-    Output: It carries a weight of knowing, a burden of foresight’s grace.
+- Example 2:
+    - Secret Pokemon: Gardevoir (Fairy, Psychic)
+    - Input: Vulpix
+    - Output: It carries a weight of knowing, a burden of foresight’s grace.
 
 Difficulty Hard:
-Example 3:
-    Input:                  
-    Output:
+- Example 3:
+    - Secret Pokemon: Mew (Psychic)
+    - Input: Bulbasaur                 
+    - Output: A whisper of dawn, cradled in amethyst skies,
 
 Used all guesses:
-    Output: No guesses left! The secret Pokemon was Sneasel (#215).
+- Output: No guesses left! The secret Pokemon was Sneasel (#215).
 
 Won the guesser:
-    Output: Correct! The secret Pokemon was Muk
+- Output: Correct! The secret Pokemon was Muk
 
 # Design Decisions 
 
@@ -52,20 +53,19 @@ I also made some UI changes to make the UI more cohesive but slighty more disple
 # Testing Summary 
 
 What Worked:
-- 
-- 
+- I was able to test name matching, and generating proper hints. The AI agent was able to work how it should in generating hints for the user to take into account. Name matching was also important so the user could guess the pokemon without worrying about senstivity and whitespace.
+
 What Didn't:
-- 
-- 
+- I'd say the one that kinda didn't work as well was the guardrails using the AI. That was kinda difficult to implement.
+
 What I Learned:
-- 
-- 
+- I learned how to make a tester on an AI agent and it's own validation. 
+- Also how to apply an AI agent directly onto logic to produce a working game.
 
 # Reflection 
 
-- What this project taught you about AI and problem-solving?
+- This project taught me how to utilize my own agent within my own unique project. That creating an application with an AI agent requires validation while working with it primarily. As I've spent a good chunk of time making sure the validation in hints was somewhat viable/helpful. I also learned how to document accordingly. I used this README and my own google doc to keep track of my general ideas along with making sure my project meets designated requirements. In times, I needed more help using Claude and Gemini helped me advance in my own work promply. I realized a good prompt goes a very long way. Otherwise, this project has been helpful in adding a new feature to an already working application.
 
-
-# Loom video Link of 2-3 examples of the project working.
+# Loom video Link
 
 
