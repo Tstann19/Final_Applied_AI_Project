@@ -1,3 +1,7 @@
+
+
+https://github.com/user-attachments/assets/346b9e71-0986-4b53-86d9-08415fdc86dd
+
 # 🎮 Game Glitch Investigator Original Project Summary
 
 - The original application is a website in which clients would guess the secret number from a designated range (i.e. 1 - 100). The game allows hints to be given to the user to assist in guessing the secret number. There is also the ability to change the game's difficulty to easy, medium, and hard.
@@ -68,7 +72,9 @@ What I Learned:
 
 # Loom video Link
 
-Uploading Screen Recording 2026-04-19 at 11.01.34 PM.mov…
+https://github.com/user-attachments/assets/7651af81-bb1f-472f-83a3-8e999d82bc50
+
+
 
 
 
