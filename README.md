@@ -19,20 +19,35 @@
 
 # Sample Interactions 
 
+Difficulty Easy:
 Example 1:
-    Input:                  Output:
+    Secret Pokemon: Piplup (Water)
+    Input: Pikachu 
+    Output: Its blue hue is instantly recognizable, a vibrant, calming color.
 
+Difficulty Normal:
 Example 2:
-    Input:                  Output:
+    Secret Pokemon: Gardevoir (Fairy, Psychic)
+    Input: Vulpix
+    Output: It carries a weight of knowing, a burden of foresight’s grace.
 
+Difficulty Hard:
 Example 3:
-    Input:                  Output:
+    Input:                  
+    Output:
+
+Used all guesses:
+    Output: No guesses left! The secret Pokemon was Sneasel (#215).
+
+Won the guesser:
+    Output: Correct! The secret Pokemon was Muk
 
 # Design Decisions 
 
-- I built the application this way because ...
+- I built the application this way because it made more sense to fetch the data then create multiple hints to assist the player as the game went on. I felt that the user should be given hints even if the user got it wrong to assist them this way. I also had the guardrail in place so the hints don't lead the player astray from the secret pokemon.
 
-- Some trade-offs I made were ...
+- Some trade-offs I made were having more simplistic type hints because of the type of AI version I'm using, and a working application. Many of the hints are a bit more cryptic in general across all difficulties due to the AI (Gemini Gemma-3-1b-it) than I'd prefer for the user. However, this model was one that was able to work in my application so I decided to keep it.
+I also made some UI changes to make the UI more cohesive but slighty more displeasing in look for the game to look very similar to the other game (number guesser). 
 
 # Testing Summary 
 
